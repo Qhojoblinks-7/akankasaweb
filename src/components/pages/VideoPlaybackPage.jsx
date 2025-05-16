@@ -11,7 +11,7 @@ import {
   faExpand,
   faCompress,
 } from '@fortawesome/free-solid-svg-icons';
-import Logo from '../../assets/logo (1).svg';
+import Logo from '../../assets/logo1.svg';
 import { courseData } from '../../data/courseData';
 import VideoPlaybackPageMobile from './VideoPlaybackPageMobile'; // Import the mobile version
 

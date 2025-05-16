@@ -11,7 +11,7 @@ import {
   faExpand,
   faCompress,
 } from '@fortawesome/free-solid-svg-icons';
-import Logo from '../../assets/logo (1).svg';
+import Logo from '../../assets/logo1.svg';
 import { courseData } from '../../data/courseData';
 import { Bars3BottomLeftIcon } from '@heroicons/react/24/outline';
 

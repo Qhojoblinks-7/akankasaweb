@@ -30,7 +30,7 @@ const RegistrationForm = () => {
        <div className="md:w-96 w-80 flex flex-col items-center justify-center">
           <img
             className="h-12 w-auto mb-2"
-            src="/src/assets/logo (1).svg"
+            src="/src/assets/logo1.svg"
             alt="Akan Kasa ne Amammere Logo"
           />
           <p className="text-sm text-gray-100/90 mt-2">Create your account to start your Akan journey</p>

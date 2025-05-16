@@ -25,7 +25,7 @@ const SignIn = () => {
         <div className="md:w-96 w-80 flex flex-col items-center justify-center">
           <img
             className="h-12 w-auto mb-2"
-            src="/src/assets/logo (1).svg"
+            src="/src/assets/logo1.svg"
             alt="Akan Kasa ne Amammere Logo"
           />
           

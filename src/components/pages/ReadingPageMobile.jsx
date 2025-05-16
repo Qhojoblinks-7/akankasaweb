@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link, useLocation } from 'react-router-dom';
-import Logo from '../../assets/logo (1).svg';
+import Logo from '../../assets/logo1.svg';
 import { courseData } from '../../data/courseData';
 import { Bars3BottomLeftIcon } from '@heroicons/react/24/outline';
 
