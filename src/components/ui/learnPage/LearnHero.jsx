@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { PlayIcon, ArrowRightIcon, CheckCircleIcon, ShieldCheckIcon } from '@heroicons/react/24/solid';
-import logo from '../../../assets/logo2.svg'; // Assuming your logo is here
+import logo from '../../../assets/hero2.jpeg'; // Assuming your logo is here
 
 
 function LearnHero() {
