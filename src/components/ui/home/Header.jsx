@@ -7,6 +7,7 @@ import {
   FaYoutube,
   FaEnvelope,
 } from 'react-icons/fa';
+import Logo from '../../../assets/logo2.svg'; // Import your logo file
 
 function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -80,7 +81,7 @@ function Header() {
           <Link to="/" className="flex-shrink-0">
             <img
               className="h-12"
-              src="/src/assets/logo2.svg"
+              src={Logo} // Use the imported Logo component
               alt="logo"
             />
           </Link>
@@ -157,11 +158,11 @@ function Header() {
               ))}
             </ul>
              <Link
-             to="/signin"
+              to="/signin"
                 className="mt-6 block w-full h-11 rounded-full bg-yellow-500 border border-yellow-600 text-center leading-9 text-gray-900 font-semibold hover:bg-yellow-400 transition transform active:scale-95"
-            >
+              >
                 Sign Up
-            </Link>
+              </Link>
 
           </div>
         )}

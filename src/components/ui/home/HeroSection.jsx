@@ -12,7 +12,7 @@ function HeroSection() {
 
   return (
     <div
-      className="h-lvh   flex flex-col items-center justify-center px-4 text-center bg-[url('/src/assets/hero.jpg')] bg-cover bg-center"
+      className="h-dvh   flex flex-col items-center justify-center px-4 text-center bg-[url('/src/assets/hero.jpg')] bg-cover bg-center"
     >
       {/* Overlay */}
       <div className="absolute inset-0 backdrop-blur bg-gray/50" />

@@ -31,8 +31,8 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="w-full md:w-1/2 flex flex-wrap md:flex-nowrap justify-between text-center md:text-left">
-          <div>
+        <div className="w-full md:w-1/2 flex flex-col md:flex-row justify-between text-center md:text-left">
+          <div className="mb-8 md:mb-0">
             <h2 className="font-semibold text-gray-900 mb-5">RESOURCES</h2>
             <ul className="text-sm text-gray-600 space-y-2 list-none">
               <li><Link to="/learn">Learn Akan</Link></li>
@@ -41,7 +41,7 @@ const Footer = () => {
               <li><Link to="/research">Research</Link></li>
             </ul>
           </div>
-          <div className="mt-8 md:mt-0">
+          <div>
             <h2 className="font-semibold text-gray-900 mb-5">EXPLORE</h2>
             <ul className="text-sm text-gray-600 space-y-2 list-none">
               <li><Link to="/about">About Us</Link></li>

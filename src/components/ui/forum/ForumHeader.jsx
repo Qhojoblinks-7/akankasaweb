@@ -1,4 +1,3 @@
-
 import React, { useState, useRef, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { FaBell, FaUserCircle } from 'react-icons/fa';
@@ -6,6 +5,7 @@ import { FaSearch } from 'react-icons/fa';
 // Import a dictionary icon (replace with your actual icon import)
 import { FaBook } from 'react-icons/fa';
 import Breadcrumb from './Breadcrumb';
+import Logo from '../../../assets/logo2.svg'; // Import your logo file
 
 function ForumHeader({ searchTerm, onSearchChange, onDictionaryIconClick }) { // Add prop for click handler
   const [isScrolled, setIsScrolled] = useState(false);
@@ -47,7 +47,7 @@ function ForumHeader({ searchTerm, onSearchChange, onDictionaryIconClick }) { //
         {/* Top Row */}
         <div className="flex items-center justify-between w-full">
           <Link to="/forum" className="flex items-center">
-            <img src="/src/assets/logo2.svg" alt="Logo" className="h-8 mr-2" />
+            <img src={Logo} alt="Logo" className="h-8 mr-2" /> {/* Use the imported Logo */}
           </Link>
 
           {!isMobile && (
