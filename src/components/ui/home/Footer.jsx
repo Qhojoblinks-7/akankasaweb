@@ -8,7 +8,7 @@ const Footer = () => {
       <div className="flex flex-col md:flex-row items-start justify-center gap-10 pb-10 border-b border-gray-300">
 
         <div className="max-w-96 text-center md:text-left">
-          <img className="h-9 mx-auto md:mx-0" src="/src/assets/logo (2).svg" alt="Akan Kasa ne Amammere Logo"/>
+          <img className="h-9 mx-auto md:mx-0" src="/src/assets/logo2.svg" alt="Akan Kasa ne Amammere Logo"/>
           <p className="mt-6 text-sm text-gray-600">
             A comprehensive online resource dedicated to learning the Akan language, exploring its rich culture, and facilitating Akan-related research.
           </p>

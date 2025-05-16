@@ -80,7 +80,7 @@ function Header() {
           <Link to="/" className="flex-shrink-0">
             <img
               className="h-12"
-              src="/src/assets/logo (2).svg"
+              src="/src/assets/logo2.svg"
               alt="logo"
             />
           </Link>

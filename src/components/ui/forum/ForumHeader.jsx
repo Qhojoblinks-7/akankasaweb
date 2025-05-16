@@ -47,7 +47,7 @@ function ForumHeader({ searchTerm, onSearchChange, onDictionaryIconClick }) { //
         {/* Top Row */}
         <div className="flex items-center justify-between w-full">
           <Link to="/forum" className="flex items-center">
-            <img src="/src/assets/logo (2).svg" alt="Logo" className="h-8 mr-2" />
+            <img src="/src/assets/logo2.svg" alt="Logo" className="h-8 mr-2" />
           </Link>
 
           {!isMobile && (
