@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { PlayIcon, ArrowRightIcon, CheckCircleIcon, ShieldCheckIcon } from '@heroicons/react/24/solid';
+import logo from '../../../assets/logo2.svg'; // Assuming your logo is here
+
 
 function LearnHero() {
   return (
@@ -46,7 +48,7 @@ function LearnHero() {
         <div className="md:w-1/2">
           <img
             className="max-w-full rounded-lg shadow-lg" 
-            src="/src/assets/hero2.jpeg" // Replace with an appropriate image
+            src={logo} // Replace with an appropriate image
             alt="Akan Language Learning Illustration"
           />
         </div>

@@ -3,6 +3,9 @@ import { Link, useLocation } from 'react-router-dom';
 import { FaBars, FaUserCircle, FaBookOpen, FaSignOutAlt, FaCog, FaQuestionCircle, FaHome, FaChevronRight } from 'react-icons/fa'; // Example icons
 import Breadcrumb from '../forum/Breadcrumb'; // Assuming Breadcrumb.js is in the same directory or adjust path
 
+import Logo from '../../../assets/logo2.svg'; // Assuming your logo is here
+
+
 function LearnHeader() {
   const [isLandingLinksOpen, setIsLandingLinksOpen] = useState(false);
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
@@ -63,7 +66,7 @@ function LearnHeader() {
         <div className="flex items-center">
           {/* Logo */}
           <Link to="/" className="mr-4">
-            <img src="/src/assets/logo.svg" alt="Akan Kasa ne Amammere Logo" className="h-8 transition-all duration-300" style={{ filter: isScrolled ? 'invert(10%) sepia(20%) saturate(600%) hue-rotate(180deg) brightness(95%) contrast(90%)' : 'none' }} />
+            <img src={Logo} alt="Akan Kasa ne Amammere Logo" className="h-8 transition-all duration-300" style={{ filter: isScrolled ? 'invert(10%) sepia(20%) saturate(600%) hue-rotate(180deg) brightness(95%) contrast(90%)' : 'none' }} />
           </Link>
 
           {/* Landing Page Links Dropdown */}

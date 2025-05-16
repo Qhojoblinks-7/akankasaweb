@@ -8,6 +8,7 @@ import LearnCallToAction from '../learnPage/LearnCallToAction'; // CTA to start 
 import FAQ from '../learnPage/FQA'; // Akan-specific FAQs
 import Footer from '../home/Footer';
 
+
 const LearnHomePage = () => {
   return (
     <>
