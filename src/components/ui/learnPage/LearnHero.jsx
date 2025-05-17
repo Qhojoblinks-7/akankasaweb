@@ -8,6 +8,16 @@ function LearnHero() {
   return (
     <section className="py-16 md:py-24 px-6 md:px-16 lg:px-24 xl:px-32 bg-gray-50"> {/* Added a light background */}
       <div className="container mx-auto flex flex-col md:flex-row items-center justify-between gap-8 md:gap-16"> {/* Using container for better centering and gap */}
+
+        {/* Right Column: Image */}
+        <div className="md:w-1/2">
+          <img
+            className="max-w-full rounded-lg shadow-lg" 
+            src={logo} // Replace with an appropriate image
+            alt="Akan Language Learning Illustration"
+          />
+        </div>
+        
         {/* Left Column: Text Content */}
         <div className="md:w-1/2 text-center md:text-left">
           <h1 className="text-4xl md:text-4xl mt-10 lg:text-5xl  text-black mb-6">
@@ -44,14 +54,7 @@ function LearnHero() {
           </div>
         </div>
 
-        {/* Right Column: Image */}
-        <div className="md:w-1/2">
-          <img
-            className="max-w-full rounded-lg shadow-lg" 
-            src={logo} // Replace with an appropriate image
-            alt="Akan Language Learning Illustration"
-          />
-        </div>
+        
       </div>
     </section>
   );

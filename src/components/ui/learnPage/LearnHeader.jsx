@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { FaBars, FaUserCircle, FaBookOpen, FaSignOutAlt, FaCog, FaQuestionCircle, FaHome, FaChevronRight } from 'react-icons/fa'; // Example icons
-import Breadcrumb from '../forum/Breadcrumb'; // Assuming Breadcrumb.js is in the same directory or adjust path
 
 import Logo from '../../../assets/logo2.svg'; // Assuming your logo is here
 
@@ -137,8 +136,6 @@ function LearnHeader() {
         </div>
       </div>
 
-      {/* Breadcrumb */}
-      <Breadcrumb landingPageLinks={landingPageLinks} />
       {/* Instant Dictionary Popup */}
       {isDictionaryPopupOpen && (
         <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white rounded-md shadow-lg p-6 z-20 origin-center animate-fade-in">

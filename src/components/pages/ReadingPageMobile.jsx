@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useParams, Link, useLocation } from 'react-router-dom';
 import Logo from '../../assets/logo1.svg';
 import { courseData } from '../../data/courseData';
 import { Bars3BottomLeftIcon } from '@heroicons/react/24/outline';
+import ForumHeader from '../ui/forum/ForumHeader'; // Import ForumHeader
+import DictionaryPopUp from '../ui/dictionary/DictionaryPopUp'; // Import DictionaryPopUp
 
 const ReadingPageMobile = () => {
   const { level, moduleId, readingId } = useParams();
@@ -16,6 +18,8 @@ const ReadingPageMobile = () => {
   const [fontSize, setFontSize] = useState('md'); // 'sm', 'md', 'lg'
   const [theme, setTheme] = useState('light'); // 'light', 'dark'
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isDictionaryOpen, setIsDictionaryOpen] = useState(false); // State for dictionary pop-up
+  const toggleDictionary = useCallback(() => setIsDictionaryOpen(prevState => !prevState), []); // Toggle dictionary
 
   useEffect(() => {
     const fetchReadingDetails = async () => {
@@ -99,19 +103,26 @@ const ReadingPageMobile = () => {
 
   return (
     <div className={`min-h-screen bg-gray-100 ${theme === 'dark' ? 'dark' : ''}`}>
-      {/* Mobile Menu Button */}
-      <button
-        onClick={toggleMobileMenu}
-        className="fixed top-4 left-4 bg-black text-white rounded-md p-2 z-50 focus:outline-none lg:hidden"
-      >
-        <Bars3BottomLeftIcon className="h-6 w-6" aria-hidden="true" />
-      </button>
+      {/* Header with Mobile Menu Button and Dictionary Icon */}
+      <header className="fixed top-0 left-0 right-0 bg-white shadow-md p-4 z-50 flex justify-between items-center">
+        <button
+          onClick={toggleMobileMenu}
+          className="bg-black text-white rounded-md p-2 focus:outline-none lg:hidden"
+        >
+          <Bars3BottomLeftIcon className="h-6 w-6" aria-hidden="true" />
+        </button>
+        <div className="flex-grow text-center">
+          {levelData?.title && <span className="text-lg font-semibold">{levelData.title}</span>}
+        </div>
+        <ForumHeader onDictionaryClick={toggleDictionary} /> {/* Include ForumHeader with toggle function */}
+      </header>
 
       {/* Sidebar (Mobile) */}
       <aside
         className={`bg-black text-white w-64 p-4 flex flex-col fixed top-0 left-0 h-full z-40 transform transition-transform duration-300 ease-in-out lg:hidden ${
           isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
+        style={{ paddingTop: '56px' }} // Adjust for fixed header
       >
         <div className="mb-6 flex justify-center">
           <Link to="/dashboard" onClick={() => setIsMobileMenuOpen(false)} className="flex justify-center">
@@ -162,7 +173,7 @@ const ReadingPageMobile = () => {
       </aside>
 
       {/* Main Content (Reading Material) */}
-      <main className="flex-1 p-4">
+      <main className="flex-1 p-4 mt-16"> {/* Adjust marginTop for fixed header */}
         <div className="bg-white rounded-md shadow-sm p-6 mb-4">
           <div className="mb-4 flex justify-between items-center">
             <div>
@@ -195,6 +206,9 @@ const ReadingPageMobile = () => {
           </article>
         </div>
       </main>
+
+      {/* Dictionary Pop-up */}
+      {isDictionaryOpen && <DictionaryPopUp onClose={toggleDictionary} />}
     </div>
   );
 };

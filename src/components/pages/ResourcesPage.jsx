@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import ForumHeader from '../ui/forum/ForumHeader';
-import Breadcrumb from '../ui/forum/Breadcrumb';
 import { Link } from 'react-router-dom';
+import DictionaryPopUp from '../ui/dictionary/DictionaryPopUp';
 
 const initialResources = [
   { id: '1', title: 'Akan Language Basics', description: 'Introduction to basic Akan phrases and grammar.', level: 'Beginner' },
@@ -14,39 +14,53 @@ const initialResources = [
 ];
 
 const ResourcesPage = () => {
+  console.log('ResourcesPage mounted'); // Added log to confirm component mounting
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredResources, setFilteredResources] = useState(initialResources);
+  const [isDictionaryOpen, setIsDictionaryOpen] = useState(false);
 
-  const handleSearchChange = (event) => {
+  const toggleDictionary = useCallback(() => {
+    console.log('ResourcesPage: toggleDictionary called');
+    setIsDictionaryOpen((prevState) => !prevState);
+    console.log('ResourcesPage: isDictionaryOpen is now', !prevState);
+  }, []);
+
+  const handleSearchChange = useCallback((event) => {
     const term = event.target.value.toLowerCase();
     setSearchTerm(term);
-    const results = initialResources.filter(resource =>
+    const results = initialResources.filter((resource) =>
       resource.title.toLowerCase().includes(term) ||
       resource.description.toLowerCase().includes(term) ||
       resource.level.toLowerCase().includes(term)
     );
     setFilteredResources(results);
-  };
+  }, []);
 
   return (
     <div className="bg-gray-100 min-h-screen">
-      <ForumHeader searchTerm={searchTerm} onSearchChange={handleSearchChange} /> {/* Pass props to ForumHeader */}
+      <ForumHeader
+        searchTerm={searchTerm}
+        onSearchChange={handleSearchChange}
+        onDictionaryClick={toggleDictionary}
+      />
       <div className="container mx-auto mt-16 p-4 sm:p-6 md:p-8">
         <div className="mb-4">
-          <Breadcrumb segments={[{ title: 'Forum', link: '/forum' }, { title: 'Resources' }]} />
+          {/* You can add a title or other elements here if needed */}
         </div>
-        {/* The search input is now in the ForumHeader */}
         <div>
           <h2 className="text-xl font-semibold mb-3">Available Resources</h2>
           {filteredResources.length > 0 ? (
             <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {filteredResources.map(resource => (
+              {filteredResources.map((resource) => (
                 <li key={resource.id} className="bg-white rounded-md shadow-md p-4">
                   <h3 className="font-semibold text-lg mb-1">{resource.title}</h3>
                   <p className="text-gray-600 text-sm mb-2">{resource.description}</p>
                   <div className="flex items-center justify-between">
                     <span className="text-gray-500 text-xs">Level: {resource.level}</span>
-                    <Link to={`/resources/${resource.id}`} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full text-xs focus:outline-none focus:shadow-outline">
+                    <Link
+                      to={`/resources/${resource.id}`}
+                      className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full text-xs focus:outline-none focus:shadow-outline"
+                    >
                       View Details
                     </Link>
                   </div>
@@ -58,6 +72,7 @@ const ResourcesPage = () => {
           )}
         </div>
       </div>
+      {isDictionaryOpen && <DictionaryPopUp onClose={toggleDictionary} />}
     </div>
   );
 };

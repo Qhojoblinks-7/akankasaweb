@@ -6,7 +6,7 @@ import ForumHeader from '../ui/forum/ForumHeader';
 import ThreadCard from '../ui/forum/ThreadCard';
 import { placeholderDiscussions } from '@/placeholderData';
 import ForumMobilePage from './ResponsiveForumPage';
-import DictionaryPopUp from '../ui/DictionaryPopUp'; // Import the dictionary pop-up component
+import DictionaryPopUp from '../ui/dictionary/DictionaryPopUp'; // Import the dictionary pop-up component
 
 const ForumMainPage = () => {
   const [isModulesOpen, setIsModulesOpen] = useState(false);
@@ -117,7 +117,7 @@ const ForumMainPage = () => {
           {/* Main Content */}
           <main className="flex-1 ml-64 h-screen mt-25 flex flex-col overflow-hidden"> {/* Adjusted ml-70 to ml-64 and mt-22 to mt-0 */}
             {/* Header with Breadcrumb and Dictionary Icon */}
-            <ForumHeader onDictionaryIconClick={toggleDictionary} />
+            <ForumHeader onDictionaryClick={toggleDictionary} /> {/* Passed the toggleDictionary function */}
 
             <div className="flex p-4 mt-8"> {/* Container for the main content sections */}
               {/* Left Section (col1 - Proverb & Festivals) */}

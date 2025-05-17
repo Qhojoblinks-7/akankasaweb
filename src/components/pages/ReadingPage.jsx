@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useParams, Link, useLocation } from 'react-router-dom';
 import Logo from '../../assets/logo1.svg';
 import { courseData } from '../../data/courseData';
 import ReadingPageMobile from './ReadingPageMobile'; // Import the mobile version
+import ForumHeader from '../ui/forum/ForumHeader';
+import DictionaryPopUp from '../ui/dictionary/DictionaryPopUp'; // Import the dictionary pop-up
 
 const ReadingPage = () => {
   const { level, moduleId, readingId } = useParams();
@@ -16,6 +18,8 @@ const ReadingPage = () => {
   const [fontSize, setFontSize] = useState('md'); // 'sm', 'md', 'lg'
   const [theme, setTheme] = useState('light'); // 'light', 'dark'
   const [isMobile, setIsMobile] = useState(false);
+  const [isDictionaryOpen, setIsDictionaryOpen] = useState(false); // State for dictionary pop-up
+  const toggleDictionary = useCallback(() => setIsDictionaryOpen(prevState => !prevState), []); // Toggle dictionary
 
   useEffect(() => {
     const checkScreenWidth = () => {
@@ -128,6 +132,7 @@ const ReadingPage = () => {
 
   return (
     <div className={`flex h-screen bg-gray-100 overflow-hidden ${theme === 'dark' ? 'dark' : ''}`}>
+      <ForumHeader onDictionaryClick={toggleDictionary} /> {/* Pass toggle function */}
       {/* Sidebar */}
       <aside className="bg-black text-white w-64 p-4 flex flex-col">
         <div className="mb-6 flex justify-center">
@@ -209,6 +214,9 @@ const ReadingPage = () => {
           </article>
         </div>
       </main>
+
+      {/* Dictionary Pop-up */}
+      {isDictionaryOpen && <DictionaryPopUp onClose={toggleDictionary} />}
     </div>
   );
 };

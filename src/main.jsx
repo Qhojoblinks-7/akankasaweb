@@ -5,7 +5,6 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
 import { BrowserRouter } from 'react-router-dom';
-import { BreadcrumbProvider } from './BreadcrumbContext';
 
 const landingPageLinks = [
   { to: '/learn-akan', label: 'Learn Akan' },
@@ -29,9 +28,7 @@ const landingPageLinks = [
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
-      <BreadcrumbProvider landingPageLinks={landingPageLinks}>
         <App />
-      </BreadcrumbProvider>
     </BrowserRouter>
   </StrictMode>
 )

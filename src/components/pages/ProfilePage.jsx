@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import ForumHeader from '../ui/forum/ForumHeader';
-import Breadcrumb from '../ui/forum/Breadcrumb';
 import { FaUserCircle, FaEdit, FaSave, FaTimes, FaMoon, FaSun } from 'react-icons/fa';
 // Import your authentication context if you have one
 // import { AuthContext } from '../contexts/AuthContext';
@@ -135,7 +134,6 @@ const ProfilePage = () => {
       <ForumHeader />
       <div className="container mx-auto mt-16 p-4 sm:p-6 md:p-8">
         <div className="mb-4">
-          <Breadcrumb segments={[{ title: 'Forum', link: '/forum' }, { title: `Profile of ${profileData.username}` }]} />
         </div>
         <div className={`bg-white rounded-md shadow-md p-4 sm:p-6 md:p-8 ${darkMode ? 'bg-gray-800 text-white' : ''}`}>
           <div className="flex items-center justify-between mb-4">

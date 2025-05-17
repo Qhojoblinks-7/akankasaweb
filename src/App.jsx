@@ -22,19 +22,14 @@ import ProfilePage from './components/pages/ProfilePage';
 import ResponsiveForumPage from './components/pages/ResponsiveForumPage';
 import ForumContainer from './components/ui/forum/ForumContainer';
 import LearnHeader from './components/ui/learnPage/LearnHeader'; // Assuming your header is here
-import Breadcrumb from './components/ui/forum/Breadcrumb';
-
+import DictionaryPage from './components/pages/DictionaryPage';
 function App() {
   const location = useLocation();
 
-  const shouldDisplayBreadcrumb = () => {
-    const noBreadcrumbRoutes = ['/', '/signin', '/register'];
-    return !noBreadcrumbRoutes.includes(location.pathname);
-  };
+
 
   return (
     <>
-      {shouldDisplayBreadcrumb() && <Breadcrumb />} {/* Removed landingPageLinks prop here */}
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/learn/beginner" element={<BeginnerLevelPage />} />
@@ -56,6 +51,7 @@ function App() {
         <Route path="/resources" element={<ViewResourcePage />} />
         <Route path="/mobile-forum" element={<ResponsiveForumPage />} />
         <Route path="/profile" element={<ProfilePage />} />
+        <Route path="/dictionary" element={<DictionaryPage />} />
       </Routes>
     </>
   );

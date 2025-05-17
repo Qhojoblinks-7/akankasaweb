@@ -4,10 +4,9 @@ import { FaBell, FaUserCircle } from 'react-icons/fa';
 import { FaSearch } from 'react-icons/fa';
 // Import a dictionary icon (replace with your actual icon import)
 import { FaBook } from 'react-icons/fa';
-import Breadcrumb from './Breadcrumb';
 import Logo from '../../../assets/logo2.svg'; // Import your logo file
 
-function ForumHeader({ searchTerm, onSearchChange, onDictionaryIconClick }) { // Add prop for click handler
+function ForumHeader({ searchTerm, onSearchChange, onDictionaryClick }) { // Renamed prop to onDictionaryClick
   const [isScrolled, setIsScrolled] = useState(false);
   const headerRef = useRef(null);
   const [isMobile, setIsMobile] = useState(false);
@@ -68,7 +67,7 @@ function ForumHeader({ searchTerm, onSearchChange, onDictionaryIconClick }) { //
             <Link to="/notifications" className="mr-4 text-gray-700 hover:text-gray-900 focus:outline-none transition-colors duration-300">
               <FaBell size={20} />
             </Link>
-            <button onClick={onDictionaryIconClick} className="mr-4 text-gray-700 hover:text-gray-900 focus:outline-none transition-colors duration-300">
+            <button onClick={onDictionaryClick} className="mr-4 text-gray-700 hover:text-gray-900 focus:outline-none transition-colors duration-300">
               <FaBook size={20} /> {/* Dictionary Icon */}
             </button>
             <Link to="/profile" className="text-gray-700 hover:text-gray-900 focus:outline-none transition-colors duration-300">
@@ -79,9 +78,7 @@ function ForumHeader({ searchTerm, onSearchChange, onDictionaryIconClick }) { //
 
         {/* Bottom Row */}
         <div className="w-full mt-2 md:mt-0 flex flex-col md:flex-row items-center justify-between">
-          <div className="w-full md:w-auto mb-2 md:mb-0">
-            <Breadcrumb />
-          </div>
+
 
           {isMobile && (
             <div className="flex items-center mt-7 border pl-4 gap-2 bg-white border-gray-500/30 h-[40px] rounded-full overflow-hidden w-full">

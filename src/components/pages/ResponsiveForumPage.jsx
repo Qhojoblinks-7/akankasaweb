@@ -5,6 +5,7 @@ import { ChevronDownIcon, ListBulletIcon } from '@heroicons/react/24/outline';
 import ForumHeader from '../ui/forum/ForumHeader';
 import ThreadCard from '../ui/forum/ThreadCard';
 import { placeholderDiscussions } from '@/placeholderData';
+import DictionaryPopUp from '../ui/dictionary/DictionaryPopUp';
 
 const ResponsiveForumPage = () => {
   const [isCategoryDropdownOpen, setIsCategoryDropdownOpen] = useState(false);
@@ -13,6 +14,9 @@ const ResponsiveForumPage = () => {
   const [error, setError] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [isMobileMenuVisible, setIsMobileMenuVisible] = useState(false);
+  const [isDictionaryOpen, setIsDictionaryOpen] = useState(false); // State for dictionary pop-up
+
+  const toggleDictionary = useCallback(() => setIsDictionaryOpen(prevState => !prevState), []); // Toggle dictionary
   const [isMobile, setIsMobile] = useState(false);
   const forumCategories = [
     { id: 'general', title: 'General Discussions' },
@@ -20,7 +24,10 @@ const ResponsiveForumPage = () => {
     { id: 'suggestions', title: 'Suggestions' },
     { id: 'announcements', title: 'Announcements' },
   ];
+
   const location = useLocation();
+
+
 
   const toggleCategoryDropdown = useCallback(() => setIsCategoryDropdownOpen(prevState => !prevState), []);
   const handleCategorySelect = useCallback((categoryId) => {
@@ -31,6 +38,8 @@ const ResponsiveForumPage = () => {
         : placeholderDiscussions
     );
   }, []);
+
+
   const toggleMobileMenu = useCallback(() => setIsMobileMenuVisible(prevState => !prevState), []);
 
   useEffect(() => {
@@ -45,9 +54,10 @@ const ResponsiveForumPage = () => {
       window.removeEventListener('resize', checkScreenWidth);
     };
   }, []);
+  
 
   if (loading) {
-    return <div>Loading forum discussions...</div>;
+    return <div>Loading forum discussions... </div>;
   }
 
   if (error) {
@@ -128,7 +138,7 @@ const ResponsiveForumPage = () => {
           className={`flex-1 p-4 ${isMobile ? '' : 'lg:pl-64'} overflow-y-auto mt-8`}
           style={{ paddingTop: isMobile ? '56px' : '0' }} // Adjust top padding for mobile
         >
-          <ForumHeader />
+          <ForumHeader onDictionaryClick={toggleDictionary} /> {/* Pass toggle function */}
 
           <div className="flex flex-col lg:flex-row">
             {/* Left Section (Proverb & Festivals) - Hidden on small screens */}
@@ -196,6 +206,9 @@ const ResponsiveForumPage = () => {
             <ListBulletIcon className="h-6 w-6" aria-hidden="true" />
           </button>
         )}
+
+        {/* Dictionary Pop-up */}
+        {isDictionaryOpen && <DictionaryPopUp onClose={toggleDictionary} />} {/* Call the pop-up */}
       </div>
     </div>
   );
