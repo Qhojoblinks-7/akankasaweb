@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import Logo from '../../assets/logo1.svg';
+import Logo from '../../../assets/logo1.svg';
 import { ChevronDownIcon } from '@heroicons/react/24/outline';
 import ForumHeader from '../forum/ForumHeader';
 import ThreadCard from '../forum/ThreadCard';

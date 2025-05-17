@@ -3,7 +3,7 @@ import LevelHeroSection from '../level/LevelHeroSection';
 import CourseLinksSection from '../level/CourseLinksSection';
 import Testimonials from '../learnPage/Testimonials';
 import Footer from '../home/Footer';
-import gyeNyame from '../../assets/gye-nyame-medium.png'; // Import your image
+import gyeNyame from '../../../assets/gye-nyame-medium.png'; // Import your image
 import LearnHeader from '../learnPage/LearnHeader';
 
 const BeginnerLevelPage = () => {

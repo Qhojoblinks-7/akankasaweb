@@ -2,7 +2,7 @@ import React from 'react';
 import LevelHeroSection from '../level/LevelHeroSection';
 import Testimonials from '../learnPage/Testimonials';
 import Footer from '../home/Footer';
-import sankofa from '../../assets/sankofa-medium.png'; // Import your image
+import sankofa from '../../../assets/sankofa-medium.png'; // Import your image
 import LearnHeader from '../learnPage/LearnHeader';
 import CourseLinksSection from '../level/CourseLinksSection'; // Import the template
 
