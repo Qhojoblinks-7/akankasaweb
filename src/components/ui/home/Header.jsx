@@ -141,7 +141,7 @@ function Header() {
             <ul className="flex flex-col space-y-4 text-lg">
               {[
                 ['/', 'Home'],
-                ['/learn', 'Learn Akan'],
+                ['/learn-home-page', 'Learn Akan'],
                 ['/culture', 'Akan Culture'],
                 ['/dictionary', 'Akan Dictionary'],
                 ['/research', 'Research'],
