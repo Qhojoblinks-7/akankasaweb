@@ -2,10 +2,10 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import Logo from '../../assets/logo1.svg';
 import { ChevronDownIcon, ListBulletIcon } from '@heroicons/react/24/outline';
-import ForumHeader from '../ui/forum/ForumHeader';
-import ThreadCard from '../ui/forum/ThreadCard';
+import ForumHeader from '../forum/ForumHeader';
+import ThreadCard from '../forum/ThreadCard';
 import { placeholderDiscussions } from '@/placeholderData';
-import DictionaryPopUp from '../ui/dictionary/DictionaryPopUp';
+import DictionaryPopUp from '../dictionary/DictionaryPopUp';
 
 const ResponsiveForumPage = () => {
   const [isCategoryDropdownOpen, setIsCategoryDropdownOpen] = useState(false);

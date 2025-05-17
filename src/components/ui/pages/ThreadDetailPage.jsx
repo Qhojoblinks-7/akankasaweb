@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import ForumHeader from '../ui/forum/ForumHeader'; // Assuming you want the same header
-import CommentCard from '../ui/forum/CommentCard';
+import ForumHeader from '../forum/ForumHeader'; // Assuming you want the same header
+import CommentCard from '../forum/CommentCard';
 
 const ThreadDetailPage = () => {
   const { threadId } = useParams();

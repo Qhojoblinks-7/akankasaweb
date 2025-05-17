@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import ForumHeader from '../ui/forum/ForumHeader';
+import ForumHeader from '../forum/ForumHeader';
 
 const ViewResourcePage = () => {
   const { resourceId } = useParams();

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import ForumHeader from '../ui/forum/ForumHeader';
+import ForumHeader from '../forum/ForumHeader';
 import { FaUserCircle, FaEdit, FaSave, FaTimes, FaMoon, FaSun } from 'react-icons/fa';
 // Import your authentication context if you have one
 // import { AuthContext } from '../contexts/AuthContext';

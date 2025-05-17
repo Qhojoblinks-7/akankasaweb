@@ -1,10 +1,10 @@
 import React from 'react';
-import LevelHeroSection from '../ui/level/LevelHeroSection';
-import Testimonials from '../ui/learnPage/Testimonials';
-import Footer from '../ui/home/Footer';
+import LevelHeroSection from '../level/LevelHeroSection';
+import Testimonials from '../learnPage/Testimonials';
+import Footer from '../home/Footer';
 import sankofa from '../../assets/sankofa-medium.png'; // Import your image
-import LearnHeader from '../ui/learnPage/LearnHeader';
-import CourseLinksSection from '../ui/level/CourseLinksSection'; // Import the template
+import LearnHeader from '../learnPage/LearnHeader';
+import CourseLinksSection from '../level/CourseLinksSection'; // Import the template
 
 const AdvancedLevelPage = () => {
   const advancedLearningObjectives = [

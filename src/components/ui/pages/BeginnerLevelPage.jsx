@@ -1,10 +1,10 @@
 import React from 'react';
-import LevelHeroSection from '../ui/level/LevelHeroSection';
-import CourseLinksSection from '../ui/level/CourseLinksSection';
-import Testimonials from '../ui/learnPage/Testimonials';
-import Footer from '../ui/home/Footer';
+import LevelHeroSection from '../level/LevelHeroSection';
+import CourseLinksSection from '../level/CourseLinksSection';
+import Testimonials from '../learnPage/Testimonials';
+import Footer from '../home/Footer';
 import gyeNyame from '../../assets/gye-nyame-medium.png'; // Import your image
-import LearnHeader from '../ui/learnPage/LearnHeader';
+import LearnHeader from '../learnPage/LearnHeader';
 
 const BeginnerLevelPage = () => {
   const beginnerLearningObjectives = [

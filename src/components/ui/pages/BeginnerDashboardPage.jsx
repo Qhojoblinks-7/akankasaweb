@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import DashboardTemplate from '../ui/courseContentUi/DashboardTemplate';
-import DashboardMobileTemplate from '../ui/courseContentUi/DashboardMobileTemplate'; // Import the mobile template
-import { courseData } from '../../data/courseData'; // Assuming courseData is in this path
+import DashboardTemplate from '../courseContentUi/DashboardTemplate';
+import DashboardMobileTemplate from '../courseContentUi/DashboardMobileTemplate'; // Import the mobile template
+import { courseData } from '../../../data/courseData'; // Assuming courseData is in this path
 
-const IntermediateDashboardPage = () => {
+const BeginnerDashboardPage = () => {
   const { level: currentLevelSlug } = useParams();
   const [levelData, setLevelData] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -107,4 +107,4 @@ const IntermediateDashboardPage = () => {
   );
 };
 
-export default IntermediateDashboardPage;
+export default BeginnerDashboardPage;

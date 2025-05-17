@@ -1,6 +1,6 @@
 import React from 'react';
-import ProgressCard from '../ui/ProgressCard';
-import OtherLevelsSection from '../ui/OtherLevelsSection';
+import ProgressCard from '../ProgressCard';
+import OtherLevelsSection from '../OtherLevelsSection';
 
 const EnrollmentDashboardPage = () => {
   // Assuming you fetch the user's progress for the enrolled level

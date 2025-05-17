@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import DashboardTemplate from '../ui/courseContentUi/DashboardTemplate';
-import DashboardMobileTemplate from '../ui/courseContentUi/DashboardMobileTemplate'; // Import the mobile template
-import { courseData } from '../../data/courseData'; // Assuming courseData is in this path
+import DashboardTemplate from '../courseContentUi/DashboardTemplate';
+import DashboardMobileTemplate from '../courseContentUi/DashboardMobileTemplate'; // Import the mobile template
+import { courseData } from '../../../data/courseData'; // Assuming courseData is in this path
 
 const AdvancedDashboardPage = () => {
   const { level: currentLevelSlug } = useParams();

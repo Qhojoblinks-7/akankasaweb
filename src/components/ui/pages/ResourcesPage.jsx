@@ -1,7 +1,7 @@
 import React, { useState, useCallback } from 'react';
-import ForumHeader from '../ui/forum/ForumHeader';
+import ForumHeader from '../forum/ForumHeader';
 import { Link } from 'react-router-dom';
-import DictionaryPopUp from '../ui/dictionary/DictionaryPopUp';
+import DictionaryPopUp from '../dictionary/DictionaryPopUp';
 
 const initialResources = [
   { id: '1', title: 'Akan Language Basics', description: 'Introduction to basic Akan phrases and grammar.', level: 'Beginner' },

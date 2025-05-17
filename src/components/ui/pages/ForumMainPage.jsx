@@ -2,11 +2,11 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import Logo from '../../assets/logo1.svg';
 import { ChevronDownIcon } from '@heroicons/react/24/outline';
-import ForumHeader from '../ui/forum/ForumHeader';
-import ThreadCard from '../ui/forum/ThreadCard';
+import ForumHeader from '../forum/ForumHeader';
+import ThreadCard from '../forum/ThreadCard';
 import { placeholderDiscussions } from '@/placeholderData';
 import ForumMobilePage from './ResponsiveForumPage';
-import DictionaryPopUp from '../ui/dictionary/DictionaryPopUp'; // Import the dictionary pop-up component
+import DictionaryPopUp from '../dictionary/DictionaryPopUp'; // Import the dictionary pop-up component
 
 const ForumMainPage = () => {
   const [isModulesOpen, setIsModulesOpen] = useState(false);

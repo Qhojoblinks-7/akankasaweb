@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import ResponsiveForumPage from '../../pages/ResponsiveForumPage'; // Assuming this is the main forum list page
+import ResponsiveForumPage from '../pages/ResponsiveForumPage'; // Assuming this is the main forum list page
 import DiscussionView from './DiscussionView'; // The renamed component
 
 const ForumContainer = () => {

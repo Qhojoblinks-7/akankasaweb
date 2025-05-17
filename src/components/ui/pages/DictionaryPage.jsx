@@ -1,14 +1,14 @@
 import React, { useState, useCallback } from 'react';
-import DictionarySearch from '../ui/dictionary/DictionarySearch';
-import DictionaryEntry from '../ui//dictionary/DictionaryEntry';
-import ExampleSentence from '../ui/dictionary/ExampleSentence';
-import Etymology from '../ui//dictionary/Etymology';
-import DialectMap from '../ui//dictionary/DialectMap';
-import Phrasebook from '../ui/dictionary/Phrasebook';
-import WordList from '../ui/dictionary/WordList';
-import DictionaryForm from '../ui/dictionary/DictionaryForm';
-import DictionaryCard from '../ui/dictionary/DictionaryCard'; // Assuming DictionaryCard is suitable for the main page too
-import akanDictionaryData from '../../data/akanDictionary'; // Your dictionary data
+import DictionarySearch from '../dictionary/DictionarySearch';
+import DictionaryEntry from '../dictionary/DictionaryEntry';
+import ExampleSentence from '../dictionary/ExampleSentence';
+import Etymology from '../dictionary/Etymology';
+import DialectMap from '../dictionary/DialectMap';
+import Phrasebook from '../dictionary/Phrasebook';
+import WordList from '../dictionary/WordList';
+import DictionaryForm from '../dictionary/DictionaryForm';
+import DictionaryCard from '../dictionary/DictionaryCard'; // Assuming DictionaryCard is suitable for the main page too
+import akanDictionaryData from '../../../data/akanDictionary'; // Your dictionary data
 
 function DictionaryPage() {
   const [searchTerm, setSearchTerm] = useState('');
