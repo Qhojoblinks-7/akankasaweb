@@ -17,7 +17,7 @@ function LearnHero() {
             alt="Akan Language Learning Illustration"
           />
         </div>
-        
+
         {/* Left Column: Text Content */}
         <div className="md:w-1/2 text-center md:text-left">
           <h1 className="text-4xl md:text-4xl mt-10 lg:text-5xl  text-black mb-6">
@@ -30,7 +30,7 @@ function LearnHero() {
           </p>
           <div className="flex flex-col sm:flex-row sm:items-center sm:gap-4 justify-center md:justify-start">
             <Link
-              to="/learn"
+              to="/learn/beginner"
               className="bg-gray-700 hover:bg-gray-500 text-white font-semibold px-6 py-3 rounded-md transition flex items-center gap-2 shadow-md"
             >
               Start Learning <PlayIcon className="h-5 w-5" />
