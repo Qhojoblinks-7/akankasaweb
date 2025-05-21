@@ -1,84 +1,100 @@
 import React, { useState, useEffect } from 'react';
-import CultureSectionNavigation from '../culture/CultureSectionNavigation';
-import CultureArticle from '../culture/CultureArticle';
-import ImageGallery from '../culture/ImageGallery';
-import Timeline from '../culture/Timeline';
-import InteractiveMap from '../culture/InteractiveMap';
-import UserContentUpload from '../culture/UserContentUpload';
 
-// Mock data - replace with your actual data fetching
-const cultureSectionsData = [
-  { id: 'traditions', label: 'Traditions', path: '/culture/traditions' },
-  { id: 'history', label: 'History', path: '/culture/history' },
-  { id: 'arts', label: 'Arts', path: '/culture/arts' },
-  // Add more sections as needed
-];
+// Import all the newly created section components
+import HeroSection from '../culture//HeroSection';
+import CultureNavigation from '../culture/CultureNavigation';
+import AkanHeritageSection from '../culture/AkanHeritageSection';
+import ExploreCultureGrid from '../culture/ExploreCultureGrid';
+import AdinkraSymbolsSection from '../culture/AdinkraSymbolsSection';
+import CulturalRhythmsVideoSection from '../culture/CulturalRhythmsVideoSection';
+import ValuesProverbsSection from '../culture/ValuesProverbsSection';
+import StayConnectedSection from '../culture/StayConnectedSection';
+import Header from '../home/Header';
 
-// Mock data for the currently viewed content - replace with dynamic data fetching based on the route
-const mockArticleData = {
-  title: 'Akan Matrilineal System',
-  image: '/images/akan_family.jpg', // Replace with actual image path
-  content: [
-    'The Akan people are well known for their matrilineal system of inheritance...',
-    'Under this system, lineage and inheritance are traced through the female line...',
-    'This has significant implications for family structure, roles, and responsibilities within Akan society.',
-    'Understanding the matrilineal system is crucial to grasping many aspects of Akan culture and social organization.',
-  ],
-  sources: ['J.S. Pobee, Akan Society', 'Kwame Arhin, West African Chiefs'],
-};
+function CulturePage() {
+  const sectionRefs = React.useMemo(() => ({
+    Overview: React.createRef(), // This will refer to the top of the main content area
+    AkanHeritage: React.createRef(),
+    AdinkraSymbols: React.createRef(),
+    ValuesProverbs: React.createRef(),
+    // Map these to actual sections in the main content if you want direct tab links
+    // Otherwise, 'Overview' can just be the general landing point
+  }), []);
 
-const mockGalleryImages = [
-  { url: '/images/akan_art1.jpg', alt: 'Akan Gold Stool', caption: 'Akan Gold Stool - symbol of authority.' }, // Replace with actual image paths
-  { url: '/images/akan_dance.jpg', alt: 'Akan Traditional Dance', caption: 'A vibrant Akan traditional dance performance.' },
-  // Add more images
-];
+  // For the navigation tabs, you can manually define them if they don't map directly to all sections,
+  // or dynamically generate them from `sectionRefs` keys.
+  const navigationTabs = React.useMemo(() => [
+    { name: 'Overview', ref: sectionRefs.Overview },
+    { name: 'Akan Heritage', ref: sectionRefs.AkanHeritage },
+    { name: 'Adinkra Symbols', ref: sectionRefs.AdinkraSymbols },
+    { name: 'Values & Proverbs', ref: sectionRefs.ValuesProverbs },
+    // Add more tabs as they correspond to main sections.
+    // The images also show 'Traditional Attire', 'Rites of Passage', 'Traditional Attire'
+    // but these are sub-sections of 'Explore Akan Culture'. You might not need direct tabs for them.
+  ], [sectionRefs]);
 
-const mockTimelineEvents = [
-  { year: 'c. 13th Century', title: 'Emergence of Early Akan States', description: 'Early Akan groups begin to form states in the forest region.' },
-  { year: '1701', title: 'Ashanti Confederacy Formed', description: 'The Golden Stool unites the Ashanti states into a powerful confederacy.' },
-  // Add more events
-];
+  // Initialize active tab based on the first tab in your navigationTabs
+  const [activeTab, setActiveTab] = useState(navigationTabs[0].name);
 
-function CultureHighlightsPage() {
-  const handleUserContentSubmit = (formData) => {
-    console.log('User submitted cultural content:', formData);
-    // Implement your logic to handle the submitted data (e.g., send to backend for moderation)
-    alert('Your contribution has been submitted for review.');
+  const handleTabClick = (tabName) => {
+    setActiveTab(tabName);
+    const targetRef = navigationTabs.find(tab => tab.name === tabName)?.ref;
+    if (targetRef && targetRef.current) {
+      targetRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   };
 
+  // Optional: Intersection Observer to update active tab on scroll
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // Find the tab name corresponding to the intersected section ID
+            const foundTab = navigationTabs.find(tab => tab.ref.current && tab.ref.current.id === entry.target.id);
+            if (foundTab) {
+              setActiveTab(foundTab.name);
+            }
+          }
+        });
+      },
+      { threshold: 0.2, rootMargin: '-10% 0px -80% 0px' } // Adjust thresholds/margins as needed
+    );
+
+    // Observe each section that has a ref
+    navigationTabs.forEach(tab => {
+      if (tab.ref.current) {
+        observer.observe(tab.ref.current);
+      }
+    });
+
+    return () => {
+      navigationTabs.forEach(tab => {
+        if (tab.ref.current) {
+          observer.unobserve(tab.ref.current);
+        }
+      });
+    };
+  }, [navigationTabs]); // Dependency array includes navigationTabs
+
   return (
-    <div className="container mx-auto p-4">
-      <h1 className="text-3xl font-semibold mb-6">Akan Culture Highlights</h1>
+    <div className="bg-gray-100 min-h-screen font-sans">
+      <Header/>
+      <HeroSection />
 
-      <CultureSectionNavigation sections={cultureSectionsData} />
+      {/* Pass sectionRefs to CultureNavigation so it knows all possible scroll targets */}
+      <CultureNavigation activeTab={activeTab} onTabClick={handleTabClick} sectionRefs={sectionRefs} />
 
-      <div className="mb-8">
-        <h2 className="text-2xl font-semibold mb-4">Featured Highlight</h2>
-        <CultureArticle article={mockArticleData} />
-      </div>
-
-      <div className="mb-8">
-        <h2 className="text-2xl font-semibold mb-4">Image Gallery</h2>
-        <ImageGallery images={mockGalleryImages} />
-      </div>
-
-      <div className="mb-8">
-        <h2 className="text-2xl font-semibold mb-4">Historical Timeline</h2>
-        <Timeline events={mockTimelineEvents} />
-      </div>
-
-      <div className="mb-8">
-        <h2 className="text-2xl font-semibold mb-4">Explore Akan Regions</h2>
-        <InteractiveMap />
-      </div>
-
-      <div className="mb-8">
-        <h2 className="text-2xl font-semibold mb-4">Share Your Knowledge</h2>
-        <p className="text-gray-700 mb-2">Contribute to our cultural archive by sharing your insights, stories, and media.</p>
-        <UserContentUpload onSubmit={handleUserContentSubmit} />
+      <div ref={sectionRefs.Overview} className="container mx-auto px-4 py-8 md:py-12"> {/* Overview section starts here */}
+        <AkanHeritageSection sectionRef={sectionRefs.AkanHeritage} />
+        <ExploreCultureGrid />
+        <AdinkraSymbolsSection sectionRef={sectionRefs.AdinkraSymbols} />
+        <CulturalRhythmsVideoSection />
+        <ValuesProverbsSection sectionRef={sectionRefs.ValuesProverbs} />
+        <StayConnectedSection />
       </div>
     </div>
   );
 }
 
-export default CultureHighlightsPage;
+export default CulturePage;
