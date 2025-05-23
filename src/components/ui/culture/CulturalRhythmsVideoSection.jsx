@@ -12,8 +12,8 @@ const culturalTimelineData = [
 
 function CulturalRhythmsAndTimelineSection({ sectionRef }) {
   return (
-    <section id="CulturalRhythmsAndTimeline" ref={sectionRef} className="bg-blue-800 rounded-lg shadow-lg p-6 md:p-8 mb-8 text-white text-center">
-      <h2 className="text-3xl font-bold mb-8">Experience Akan Culture</h2>
+    <section id="CulturalRhythmsAndTimeline" ref={sectionRef} className="bg-blue-900 rounded-lg shadow-lg p-6 md:p-8 mb-8 text-white text-center"> {/* Darker blue background */}
+      <h2 className="text-3xl font-bold mb-8">Rhythms of the Soul: Akan Music and Dance</h2> {/* Updated heading */}
       <div className="flex flex-col lg:flex-row gap-8 items-center justify-center">
         {/* Video Player Section (Left) */}
         <div className="lg:w-1/2 flex justify-center items-center">
@@ -29,7 +29,7 @@ function CulturalRhythmsAndTimelineSection({ sectionRef }) {
         </div>
 
         {/* Cultural Timeline Section (Right) */}
-        <div className="lg:w-1/2 bg-blue-900 rounded-lg p-6 lg:p-8 shadow-inner text-left h-full">
+        <div className="lg:w-1/2 bg-blue-900 rounded-lg p-6 lg:p-8 shadow-inner text-left h-full"> {/* Inner box for timeline */}
           <h3 className="text-2xl font-bold mb-4">Cultural Timeline</h3>
           <div className="relative pl-6 border-l-2 border-yellow-500">
             {culturalTimelineData.map((event, index) => (
@@ -41,6 +41,15 @@ function CulturalRhythmsAndTimelineSection({ sectionRef }) {
             ))}
           </div>
         </div>
+      </div>
+      {/* Buttons below the content as per the new image */}
+      <div className="mt-8 flex justify-center gap-4">
+        <button className="bg-yellow-500 hover:bg-yellow-600 text-blue-900 font-bold py-2 px-6 rounded-full text-md transition duration-300 shadow-md">
+          Listen to Music
+        </button>
+        <button className="bg-white hover:bg-gray-100 text-blue-900 border border-blue-900 font-bold py-2 px-6 rounded-full text-md transition duration-300 shadow-md">
+          Explore Dances
+        </button>
       </div>
     </section>
   );

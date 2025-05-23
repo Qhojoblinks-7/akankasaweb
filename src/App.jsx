@@ -26,6 +26,7 @@ import DictionaryPage from './components/ui/pages/DictionaryPage';
 import CultureHighlightsPage from './components/ui/pages/CultureHighlightsPage';
 import ResearchPage from './components/ui/pages/ResearchPage';
 import CommunityPage from './components/ui/pages/CommunityPage';
+import ArticlePage from './components/ui/pages/ArticlePage';
 function App() {
 
 
@@ -55,7 +56,9 @@ function App() {
         <Route path="/dictionary" element={<DictionaryPage />} />
         <Route path="/culture" element={<CultureHighlightsPage />} />
         <Route path="/research" element={<ResearchPage />} />
+        <Route path="/research/resource-library" element={<ResearchPage />} />
         <Route path="/community" element={<CommunityPage />} />
+        <Route path="/research/articles/:articleId" element={<ArticlePage />} />
       </Routes>
     </>
   );
