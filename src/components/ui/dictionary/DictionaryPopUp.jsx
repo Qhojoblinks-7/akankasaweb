@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import DictionaryCard from './DictionaryCard';
 import DictionarySearchSkeleton from './DictionarySearchSkeleton';
-import akanDictionaryData from '../../../data/akanDictionary'; // Adjust the import path if needed
+import akanDictionaryData from '../../data/akanDictionary'; // Adjust the import path if needed
 
 const DictionaryPopUp = ({ onClose }) => {
   const [searchTerm, setSearchTerm] = useState('');

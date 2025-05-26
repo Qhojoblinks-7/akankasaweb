@@ -2,7 +2,7 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import Sidebar from '../dictionary/Sidebar';
 import MainContent from '../dictionary/MainContent';
-import akanDictionaryDataRaw from '../../../data/akanDictionary.js';
+import akanDictionaryDataRaw from '../../data/akanDictionary.js';
 import { FaBars } from 'react-icons/fa';
 
 // Pre-process and filter the raw dictionary data once to ensure consistency

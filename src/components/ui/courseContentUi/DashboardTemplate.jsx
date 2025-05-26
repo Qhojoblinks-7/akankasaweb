@@ -3,7 +3,7 @@ import { Link, useLocation, useParams } from 'react-router-dom';
 import Logo from '../../../assets/logo1.svg';
 import { ChevronDownIcon } from '@heroicons/react/24/outline';
 import { PlayIcon, BookOpenIcon } from '@heroicons/react/24/outline'; // Outline icons
-import { courseData } from '../../../data/courseData';
+import { courseData } from '../../data/courseData';
 
 const DashboardTemplate = ({
   col2Label = 'Content Options',

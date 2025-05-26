@@ -3,7 +3,7 @@ import { Link, useLocation, useParams } from 'react-router-dom';
 import Logo from '../../../assets/logo1.svg';
 import { ChevronDownIcon } from '@heroicons/react/24/outline';
 import { PlayIcon, BookOpenIcon, Bars3BottomLeftIcon } from '@heroicons/react/24/outline'; // Added Bars3BottomLeftIcon
-import { courseData } from '../../../data/courseData';
+import { courseData } from '../../data/courseData';
 
 const DashboardMobileTemplate = ({
   col2Label = 'Content Options',

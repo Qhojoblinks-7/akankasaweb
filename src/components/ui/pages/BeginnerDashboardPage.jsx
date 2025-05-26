@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import DashboardTemplate from '../courseContentUi/DashboardTemplate';
 import DashboardMobileTemplate from '../courseContentUi/DashboardMobileTemplate'; // Import the mobile template
-import { courseData } from '../../../data/courseData'; // Assuming courseData is in this path
+import { courseData } from '../../data/courseData'; // Assuming courseData is in this path
 
 const BeginnerDashboardPage = () => {
   const { level: currentLevelSlug } = useParams();

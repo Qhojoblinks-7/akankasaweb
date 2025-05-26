@@ -12,7 +12,7 @@ import {
   faCompress,
 } from '@fortawesome/free-solid-svg-icons';
 import Logo from '../../../assets/logo1.svg';
-import { courseData } from '../../../data/courseData';
+import { courseData } from '../../data/courseData';
 import VideoPlaybackPageMobile from './VideoPlaybackPageMobile'; // Import the mobile version
 
 const VideoPlaybackPage = () => {

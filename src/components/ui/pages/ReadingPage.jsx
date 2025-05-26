@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useParams, Link, useLocation } from 'react-router-dom';
 import Logo from '../../../assets/logo1.svg';
-import { courseData } from '../../../data/courseData';
+import { courseData } from '../../data/courseData';
 import ReadingPageMobile from './ReadingPageMobile'; // Import the mobile version
 import ForumHeader from '../forum/ForumHeader';
 import DictionaryPopUp from '../dictionary/DictionaryPopUp'; // Import the dictionary pop-up

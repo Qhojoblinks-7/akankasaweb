@@ -1,14 +1,14 @@
 // src/research/ResearchForum.jsx
 import React, { useState, useEffect } from 'react';
 import ForumDiscussionCard from './ForumDiscussionCard';
-import ForumPostDetailModal from '../forum/ForumPostDetailModal'; // NEW
-import NewTopicModal from '../forum/NewTopicModal'; // NEW
-import { getLatestForumDiscussions, getForumDiscussionById } from '../../data/forumPostsData'; // NEW imports
+import ForumPostDetailModal from '../components/ForumPostDetailModal'; // NEW
+import NewTopicModal from '../components/NewTopicModal'; // NEW
+import { getLatestForumDiscussions, getForumDiscussionById } from '../data/forumPostsData'; // NEW imports
 
 // Placeholder avatars (adjust paths or replace with actual imports)
-import avatar1 from '../../../assets/medium-shot-woman-having-fun-outdoors_23-2150726005.jpg';
-import avatar2 from '../../../assets/medium-shot-woman-having-fun-outdoors_23-2150726005.jpg';
-import avatar3 from '../../../assets/medium-shot-woman-having-fun-outdoors_23-2150726005.jpg';
+import avatar1 from '../assets/avatars/avatar-kwamea.jpg';
+import avatar2 from '../assets/avatars/avatar-amanana.jpg';
+import avatar3 from '../assets/avatars/avatar-kofimensah.jpg';
 
 const ResearchForum = () => {
   const [showDetailModal, setShowDetailModal] = useState(false);

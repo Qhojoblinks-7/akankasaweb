@@ -1,13 +1,13 @@
 // src/article/ArticleHeader.jsx
 import React from 'react';
-import heroImage from '../../../assets/medium-shot-woman-having-fun-outdoors_23-2150726005.jpg'; // Assuming you'll add a specific image for the article header
+// Import the image from the correct relative path
+import heroImage from '../../../assets/medium-shot-woman-having-fun-outdoors_23-2150726005.jpg'; // Assuming 'medium-shot-woman-having-fun-outdoors_23-2150726005.jpg' is now named image_60d257.jpg or you have a better placeholder. Adjust this path as needed.
 
 const ArticleHeader = ({ data }) => {
-  // Placeholder for the decorative image. You'd want to add an actual image.
-  // For demonstration, I'm using a placeholder name.
-  // Make sure to add this image to your src/assets folder.
-  // For example: src/assets/hero_article.png (a small image of books/plant like in the design)
-  const decorativeImage = heroImage; // Replace with a more descriptive path/import if needed
+  if (!data) return null; // Defensive check for data
+
+  // Using the imported image directly
+  const decorativeImage = heroImage;
 
   return (
     <section className="bg-white rounded-lg shadow-md p-6 lg:p-8 flex flex-col lg:flex-row items-start gap-6 lg:gap-8">
@@ -60,12 +60,11 @@ const ArticleHeader = ({ data }) => {
       </div>
 
       {/* Right Decorative Image Card */}
-      <div className="bg-orange-50 rounded-lg p-4 flex-shrink-0 flex items-center justify-center" style={{ width: '250px', height: '200px' }}> {/* Fixed dimensions for the decorative card */}
+      <div className="bg-orange-50 rounded-lg p-4 flex-shrink-0 flex items-center justify-center" style={{ width: '250px', height: '200px' }}>
         <img
           src={decorativeImage}
-          alt="Abstract illustration"
+          alt="Abstract illustration related to research"
           className="max-w-full h-auto object-contain"
-          // Consider adding a slightly smaller max-width/height if the image is too large for the card
           style={{ maxWidth: '180px', maxHeight: '180px' }}
         />
       </div>

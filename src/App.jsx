@@ -27,6 +27,7 @@ import CultureHighlightsPage from './components/ui/pages/CultureHighlightsPage';
 import ResearchPage from './components/ui/pages/ResearchPage';
 import CommunityPage from './components/ui/pages/CommunityPage';
 import ArticlePage from './components/ui/pages/ArticlePage';
+import ResourceDetailPage from './components/ui/pages/ResourceDetailPage';
 function App() {
 
 
@@ -58,7 +59,8 @@ function App() {
         <Route path="/research" element={<ResearchPage />} />
         <Route path="/research/resource-library" element={<ResearchPage />} />
         <Route path="/community" element={<CommunityPage />} />
-        <Route path="/research/articles/:articleId" element={<ArticlePage />} />
+        <Route path="/research/articles/:articleId" element={<ArticlePage />} /><Route path="/resources/:resourceId" element={<ResourceDetailPage />} />
+
       </Routes>
     </>
   );
