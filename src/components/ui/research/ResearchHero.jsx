@@ -27,7 +27,7 @@ const ResearchHero = () => {
                    If it's meant to push it down, consider `pt-x` on the parent section or `mt-x` on the h1 itself,
                    but `mt-15` isn't a standard Tailwind class. I'll assume it's `mt-0` or remove it.
         */}
-        <h1 className="text-4xl md:text-5xl font-extrabold text-gray-800 leading-tight mb-6 mt-0"> {/* Changed mt-15 to mt-0 or consider removing */}
+        <h1 className="text-4xl md:text-5xl font-extrabold text-gray-800 leading-tight mb-6 mt-20"> {/* Changed mt-15 to mt-0 or consider removing */}
           Akan Research Hub: <span className="text-orange-600">Explore, Collaborate, Discover.</span>
         </h1>
         {/* Paragraph styles: */}
