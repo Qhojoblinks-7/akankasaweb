@@ -36,11 +36,11 @@ const ForumPostDetailModal = ({ discussion, onClose }) => {
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-75 overflow-y-auto"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-transparent backdrop-blur-lg overflow-y-auto"
       onClick={onClose} // Allows clicking outside the modal to close it
     >
       <div
-        className="bg-gray-100 rounded-lg shadow-xl w-full max-w-3xl overflow-hidden animate-fade-in-up transform transition-all duration-300"
+        className="bg-gray-100 rounded-lg shadow-xl w-full max-w-3xl overflow-hidden animate-fade-in-up h-screen transform transition-all duration-300"
         onClick={(e) => e.stopPropagation()} // Prevents click on modal content from closing the modal
       >
         {/* Modal Header */}
