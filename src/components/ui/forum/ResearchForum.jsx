@@ -1,24 +1,22 @@
 // src/research/ResearchForum.jsx
 import React, { useState, useEffect } from 'react';
 import ForumDiscussionCard from './ForumDiscussionCard';
-import ForumPostDetailModal from '../components/ForumPostDetailModal'; // NEW
-import NewTopicModal from '../components/NewTopicModal'; // NEW
-import { getLatestForumDiscussions, getForumDiscussionById } from '../data/forumPostsData'; // NEW imports
+import ForumPostDetailModal from '../components/ForumPostDetailModal'; // Corrected path
+import NewTopicModal from '../components/NewTopicModal';
+import { getLatestForumDiscussions, getForumDiscussionById } from '../data/forumPostsData';
 
 // Placeholder avatars (adjust paths or replace with actual imports)
 import avatar1 from '../assets/avatars/avatar-kwamea.jpg';
-import avatar2 from '../assets/avatars/avatar-amanana.jpg';
-import avatar3 from '../assets/avatars/avatar-kofimensah.jpg';
+// ... (other avatar imports) ...
 
 const ResearchForum = () => {
   const [showDetailModal, setShowDetailModal] = useState(false);
   const [showNewTopicModal, setShowNewTopicModal] = useState(false);
   const [selectedDiscussion, setSelectedDiscussion] = useState(null);
-  const [latestDiscussions, setLatestDiscussions] = useState([]); // State for latest discussions
+  const [latestDiscussions, setLatestDiscussions] = useState([]);
 
   useEffect(() => {
-    // Fetch latest discussions when component mounts
-    setLatestDiscussions(getLatestForumDiscussions(3)); // Get top 3 latest
+    setLatestDiscussions(getLatestForumDiscussions(3));
   }, []);
 
   const handleCardClick = (discussionId) => {
@@ -29,11 +27,8 @@ const ResearchForum = () => {
 
   const handleNewTopicSubmit = ({ title, content }) => {
     console.log("New topic submitted:", { title, content });
-    // In a real application, you would send this to a backend API
-    // For now, let's just log it and potentially add a placeholder.
-    alert(`New topic "${title}" submitted! (Not saved permanently in this demo)`);
-    // Optionally: Add the new topic to the list, or refresh from server
-    // For demo, we'll just close the modal.
+    alert(`New topic "${title}" submitted! (This is a demo, not saved permanently)`);
+    setShowNewTopicModal(false);
   };
 
   return (
@@ -43,7 +38,7 @@ const ResearchForum = () => {
           Collaborative Research Forum
         </h2>
         <button
-          onClick={() => setShowNewTopicModal(true)} // Open new topic modal
+          onClick={() => setShowNewTopicModal(true)}
           className="bg-orange-500 text-white px-5 py-2 rounded-md text-sm hover:bg-orange-600 transition duration-300 flex items-center"
         >
           <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -53,7 +48,6 @@ const ResearchForum = () => {
         </button>
       </div>
 
-      {/* Forum Discussions Card */}
       <div className="bg-white rounded-lg shadow-xl p-6">
         <h3 className="text-lg font-semibold text-gray-800 mb-4 flex items-center">
           <svg className="w-5 h-5 text-orange-500 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -66,22 +60,22 @@ const ResearchForum = () => {
             <ForumDiscussionCard
               key={discussion.id}
               title={discussion.title}
-              author={discussion.posts[0]?.author || 'Unknown'} // First post's author
-              timeAgo={discussion.posts[0]?.timestamp || 'N/A'} // First post's timestamp
-              avatarSrc={discussion.posts[0]?.avatarSrc || avatar1} // First post's avatar
-              link={discussion.link}
-              onClick={() => handleCardClick(discussion.id)} // Pass ID to handler
+              author={discussion.posts[0]?.author || 'Unknown'}
+              timeAgo={discussion.posts[0]?.timestamp || 'N/A'}
+              avatarSrc={discussion.posts[0]?.avatarSrc || avatar1}
+              // !!! IMPORTANT: Ensure there is NO 'link={discussion.link}' or similar here !!!
+              onClick={() => handleCardClick(discussion.id)}
             />
           ))}
         </div>
         <div className="text-right mt-6">
+          {/* This 'a href="#"' is fine as it doesn't try to change the URL. */}
           <a href="#" className="text-orange-600 font-semibold hover:underline">
             See all discussions
           </a>
         </div>
       </div>
 
-      {/* Forum Detail Modal */}
       {showDetailModal && (
         <ForumPostDetailModal
           discussion={selectedDiscussion}
@@ -89,7 +83,6 @@ const ResearchForum = () => {
         />
       )}
 
-      {/* New Topic Modal */}
       {showNewTopicModal && (
         <NewTopicModal
           onClose={() => setShowNewTopicModal(false)}

@@ -9,9 +9,9 @@ const NewTopicModal = ({ onClose, onSubmit }) => {
     e.preventDefault();
     if (title.trim() && content.trim()) {
       onSubmit({ title, content });
-      setTitle('');
+      setTitle(''); // Clear form fields on submission
       setContent('');
-      onClose();
+      // onClose is called by the onSubmit handler in ResearchPage.jsx
     } else {
       alert('Please fill in both title and content.');
     }
@@ -20,11 +20,11 @@ const NewTopicModal = ({ onClose, onSubmit }) => {
   return (
     <div
       className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-75 overflow-y-auto"
-      onClick={onClose}
+      onClick={onClose} // Allows clicking outside to close
     >
       <div
         className="bg-white rounded-lg shadow-xl w-full max-w-xl overflow-hidden animate-fade-in-up"
-        onClick={(e) => e.stopPropagation()}
+        onClick={(e) => e.stopPropagation()} // Prevents click on modal content from closing
       >
         {/* Modal Header */}
         <div className="flex items-center justify-between p-4 border-b border-gray-200">

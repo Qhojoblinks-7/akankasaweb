@@ -9,6 +9,9 @@
   text-overflow: ellipsis;
 }
 
+.proverb-highlight {
+  @apply bg-yellow-100 p-3 rounded-md mb-3 border border-yellow-200;
+}
 .hide-scrollbar {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
